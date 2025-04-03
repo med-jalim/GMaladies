@@ -1,0 +1,126 @@
+*{
+    margin: 0 !important ;
+    padding: 0 !important;
+    transition: all .3s;
+}
+
+
+:root{
+    --bs-dark-rgb: 35, 35, 88;
+    --sidebar-mobile-width:60px;
+    --myprimary:rgb(35, 35, 88);
+
+    
+}
+
+.btn-primary {
+    --bs-btn-color: #ffffff ;
+    --bs-btn-bg: var(--myprimary);
+    --bs-btn-border-color: #8686b2;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #3c3c72;
+    --bs-btn-hover-border-color: #4b6387;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #3c3c72;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.form-control:focus ,.form-select:focus  {
+    border-color: var(--myprimary);
+    box-shadow: 0 0 0 0.25rem rgba(35, 35, 88, 0.25);
+}
+
+
+.mainContainer{
+    max-height: 100vh !important;
+}
+
+.mainAside{
+    background-color: var(--myprimary);
+}
+
+.active{
+    background-color: #3c3c72 !important;
+}
+
+
+table th ,table td {
+    padding: 1vh !important;
+}
+
+.table-container{
+    max-height: 50vh !important;
+    overflow: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: 20px;
+}
+.main_centent{
+    position: relative;
+    height: 100vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+.patient{
+    position: absolute;
+    width: 80%;
+    height: max-content;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transform-origin: center;
+    transition: all .2s;
+    box-shadow: 0 0 3rem 20rem rgba(50, 50, 55, 0.34) ;
+    overflow: hidden;
+}
+
+.patient>form>div>input,.patient>form>div>select{
+    padding: .2rem !important;
+}
+
+#formMdPassword{
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 3rem 20rem rgba(50, 50, 55, 0.34) ;
+    transition: all 3s;
+}
+
+@media (max-width: 768px) {
+
+    .mainAside {
+        position: fixed;
+        min-height: 100vh;
+        width: var(--sidebar-mobile-width);
+        transition: all .3s;
+        /* padding: 1rem 0.5rem; */
+    }
+    .mainAside:hover {
+        width: 150px;
+    }
+    .Asidelogo h5{
+        opacity: 0;
+    }
+
+    .mainAside a{
+        opacity: 0;
+    }
+
+    .mainAside:hover a, .mainAside:hover .Asidelogo h5{
+        opacity: 1;
+    }
+    
+
+    .main_centent{
+        margin-left: var(--sidebar-mobile-width) !important;
+    }
+    
+}
