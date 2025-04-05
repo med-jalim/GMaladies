@@ -2,9 +2,9 @@
 
 
 include(dirname(__FILE__).'/../api/user.php');
+include("../config.php");
 
 
 $user->logout();
 
-header('location:/php/gmaladies/auth/login.php');
-
+redirect('auth/login.php');

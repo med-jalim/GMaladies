@@ -1,9 +1,9 @@
 <?php
+include("config.php");
 session_start();
 
 if (!$_SESSION && !isset($_COOKIE['role'])) {
-    header("location:/php/gmaladies/auth/login.php");
-    exit();
+    redirect('auth/login.php');
 }
 ?>
 
@@ -33,7 +33,7 @@ if (!$_SESSION && !isset($_COOKIE['role'])) {
         <main class="main_centent col">
             <header class="w-100 p-4 shadow d-flex justify-content-between">
                 <h4 class="fw-bold"><?php echo "Bonjour " . $_COOKIE['role']; ?></h4>
-                <a href="/php/gmaladies/auth/logout.php" class="btn btn-primary px-2 py-1">Logout</a>
+                <a href='auth/logout.php' class="btn btn-primary px-2 py-1">Logout</a>
             </header>
 
             <!-- Patient Management Section -->

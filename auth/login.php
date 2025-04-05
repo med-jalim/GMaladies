@@ -1,12 +1,12 @@
 <?php
-
+include("../config.php");
 
 session_start();
 if(isset($_COOKIE['role']) ){
   if($_SESSION['role']=='doctor' || $_COOKIE['role']=='doctor' ){
-    header("location:/php/gmaladies/doctor.php");
+    redirect("doctor.php");
   }elseif($_COOKIE['role']=='patient' ){
-    header("location:/php/gmaladies/patient.php");
+    redirect("patient.php");
 
   }
 };
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         'email' => $_POST["email"],
         'password' => $_POST['password']
     ];
-    $ch=curl_init("http://localhost/php/GMaladies/api/login_api.php");
+    $ch=curl_init(asset("api/login_api.php"));
     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
     curl_setopt($ch,CURLOPT_POST,true);
     curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
@@ -35,9 +35,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       // setcookie('nom', $user['nom'],time() + (365 * 24 * 60 * 60 * 2), "/");
       setcookie('role', $user['role'],time() + (365 * 24 * 60 * 60 * 2), "/");
       if($_SESSION["role"]=="doctor"){
-        header("location:/php/gmaladies/doctor.php");
+        redirect("doctor.php");
       }else{
-        header("location:/php/gmaladies/patient.php");
+        redirect('patient.php');
       }
       
 

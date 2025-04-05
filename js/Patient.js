@@ -201,5 +201,13 @@ class Patient{
 }
 
 
-var patient=new Patient("http://localhost/php/gmaladies/api/patient_api.php")
+
+const currentPage=window.location.pathname.split("/")
+currentPage.pop()
+const basUrl=window.location.origin+currentPage.join('/')+"/"
+
+// console.log( basUrl )
+
+
+var patient=new Patient(basUrl+"api/patient_api.php")
 
